@@ -26,5 +26,14 @@ def pair(L_list,R_list):
         sum_distance.append(distance)
     total = sum(sum_distance)
     print(total)            
-        
+
+def similarity(L_list, R_list):
+    sim_score = 0
+    for number in L_list:
+        number_count = R_list.count(number)
+        score = number * number_count
+        sim_score += score
+    print(sim_score)
+    
 pair(left,right)    
+similarity(left,right)
