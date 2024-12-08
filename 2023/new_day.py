@@ -23,10 +23,26 @@ def create_sequential_folder():
     file_2 = os.path.join(new_folder_name, f"day_{new_folder_name}_2.py")
     file_3 = os.path.join(new_folder_name, f"day_{new_folder_name}.txt")
 
-    # Create files in the new folder
+    # Create the Python files and the .txt file in the new folder
     open(file_1, 'w').close()
     open(file_2, 'w').close()
+
+    # Write the code into day_X_1.py and day_X_2.py to open and read adventX.txt
+    python_code = f"""
+with open("advent{new_folder_name}.txt", "r") as fd:
+    data = fd.readlines()
+print(data)
+"""
+
+    with open(file_1, 'w') as fd1:
+        fd1.write(python_code)
+
+    with open(file_2, 'w') as fd2:
+        fd2.write(python_code)
+
+    # Create the .txt file
     open(file_3, 'w').close()
+
     print(f"Files '{file_1}', '{file_2}', and '{file_3}' created.")
 
 # Run the function
